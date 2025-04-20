@@ -219,3 +219,5 @@ Dari hasil tersebut, dapat disimpulkan bahwa **Gradient Boosting Regressor** men
 - Nilai MAE paling rendah, artinya rata-rata kesalahan prediksinya paling kecil
 - Nilai MSE paling rendah, menunjukkan prediksi model relatif konsisten dan tidak terlalu jauh dari nilai aktual
 - Nilai R² tertinggi (0.90), yang berarti model mampu menjelaskan 90% variasi dari target
+  
+Model ini dapat digunakan perusahaan asuransi untuk memprediksi kebutuhan perusahaan di masa depan
