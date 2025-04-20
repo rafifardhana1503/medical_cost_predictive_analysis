@@ -101,9 +101,10 @@ Melakukan tiga tahap persiapan data, yaitu:
 3. Standarisasi (scaling) menggunakan `StandardScaler` terhadap data yang telah displit sebelumnya. `StandardScaler` menghasilkan distribusi angka rentang 1,0,-1. Hal ini dilakukan agar algoritma stidak terpengaruh oleh perbedaan skala antar fitur.
 
 ## Modeling
-Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan menggunakan tiga algoritma yaitu Linear Regression, Random Forest Regressor, dan Gradien Boosting Regressor. Kemudian, akan dievaluasi performa masing-masing algoritma dan menentukan algoritma mana yang memberikan hasil prediksi terbaik. Ketiga algoritma yang akan digunakan, antara lain:
-1. Linear Regression\
-   Algoritma dasar dalam regresi yang mencoba mencari hubungan linear antara fitur dan target\
+Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan menggunakan tiga algoritma yaitu Linear Regression, Random Forest Regressor, dan Gradien Boosting Regressor. Kemudian, akan dievaluasi performa masing-masing algoritma dan menentukan algoritma mana yang memberikan hasil prediksi terbaik. Ketiga algoritma yang akan digunakan, antara lain:\
+**1. Linear Regression**\
+   Algoritma dasar dalam regresi yang mencoba mencari hubungan linear antara fitur dan target
+   
    **Paramater yang digunakan**
    - Default dari `LinearRegression()`
    
@@ -120,8 +121,9 @@ Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan mengg
    - Tidak mampu menangkap hubungan non-linear.
    - Sensitif terhadap outlier.
 
-2. Random Forest Regressor\
-   Metode ensemble berbasis pohon keputusan yang menggabungkan banyak pohon untuk meningkatkan akurasi dan mengurangi overfitting\
+**2. Random Forest Regressor**\
+   Metode ensemble berbasis pohon keputusan yang menggabungkan banyak pohon untuk meningkatkan akurasi dan mengurangi overfitting
+   
    **Paramater yang digunakan**
    - `n_estimator=150`: jumlah pohon dalam hutan
    - `max_depth=15`: kedalaman maksimum setiap pohon
@@ -141,8 +143,9 @@ Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan mengg
    - Model cukup kompleks dan sulit untuk diinterpretasi
    - Waktu pelatihan lebih lama dibandingkan Linear Regression
 
-3. Gradient Boosting Regressor\
-   Metode boosting yang membangun model secara bertahap, di mana setiap model baru mencoba memperbaiki kesalahan dari model sebelumnya.\
+**3. Gradient Boosting Regressor**\
+   Metode boosting yang membangun model secara bertahap, di mana setiap model baru mencoba memperbaiki kesalahan dari model sebelumnya.
+   
    **Paramater yang digunakan**
    - `n_estimator=150`: jumlah boosting stage
    - `max_depth=15`: kedalaman maksimum setiap pohon
