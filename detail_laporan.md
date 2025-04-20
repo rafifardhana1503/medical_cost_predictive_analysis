@@ -162,8 +162,8 @@ Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan mengg
    - Waktu pelatihan lebih lama dari Linear Regression
    - Rentan terhadap overfitting
 
-**Pemilihan model terbaik**
-Berdasarkan hasil evaluasi pada data uji, model dengan performa terbaik dipilih dengan mempertimbangkan nilai MAE terendah, MSE terendah, dan R² tertinggi.
+**Pemilihan model terbaik**\
+Berdasarkan hasil evaluasi pada data uji, model dengan performa terbaik dipilih dengan mempertimbangkan nilai MAE terendah, MSE terendah, dan R² tertinggi.\
 Jika dibandingkan, Gradient Boosting Regressor menunjukkan performa terbaik dengan nilai MAE paling rendah, MSE paling rendah, R² paling tinggi
 
 Oleh karena itu, Gradient Boosting Regressor dipilih sebagai model terbaik karena:
@@ -172,10 +172,20 @@ Oleh karena itu, Gradient Boosting Regressor dipilih sebagai model terbaik karen
 - Lebih baik dibandingkan Random Forest dan Linear Regression dalam hal generalisasi pada data ini
 
 ## Evaluation
-Untuk mengevaluasi performa model regresi yang dibangun, digunakan tiga metrik utama, yaitu Mean Absolute Error (MAE), Mean Squared Error (MSE), R-Squared (R²)
-**1. Mean Absolute Error (MAE)**
-MAE mengukur rata-rata selisih absolut antara nilai sebenarnya dengan hasil prediksi. Semakin kecil MAE, maka model semakin akurat.
+Untuk mengevaluasi performa model regresi yang dibangun, digunakan tiga metrik utama, yaitu Mean Absolute Error (MAE), Mean Squared Error (MSE), R-Squared (R²)\
+**1. Mean Absolute Error (MAE)**\
+MAE mengukur rata-rata selisih absolut antara nilai sebenarnya dengan hasil prediksi. Semakin kecil MAE, maka model semakin akurat.\
 Formula:
+
+![MAE Formula](./MAE_Formula.jpeg)\
+- yi = nilai aktual
+- 𝑦^𝑖 = nilai prediksi
+- n = jumlah total sampel
+
+MAE menghitung rata-rata dari selisih absolut antara nilai aktual dan hasil prediksi. Misalnya jika model memprediksi biaya medis sebesar 12.000 tetapi aslinya 10.000, maka selisihnya 2.000. Jika banyak data yang seperti ini, MAE akan menunjukkan rata-rata seberapa jauh prediksi dari kenyataan
+
+**2. Mean Squared Error (MSE)**\
+MSE mengukur rata-rata dari kuadrat selisih antara nilai aktual dan prediksi. Karena nilai selisih dikuadratkan, MSE memberikan penalti lebih besar terhadap error yang besar.
 
 
 Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
