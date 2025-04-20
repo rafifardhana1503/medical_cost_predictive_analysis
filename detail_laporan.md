@@ -6,12 +6,10 @@ Perusahaan asuransi kesehatan adalah lembaga yang menyediakan perlindungan finan
 **Rubrik/Kriteria Tambahan**:
 - Masalah ini sangat penting bagi banyak pemangku kepentingan perusahaan kesehatan khususnya asuransi, sebab estimasi biaya yang akurat dapat membantu perusahaan untuk merencanakan masa depan dan memprioritaskan alokasi sumber daya manajemen. Masalah ini dapat diselesaikan dengan mengadopsi teknologi terkini yaitu Machine Learning. Machine Learning (ML) merupakan salah satu aspek kecerdasan komputasional yang dapat memecahkan berbagai masalah dalam berbagai aplikasi dan sistem dalam hal memanfaatkan data historis. Khususnya di sektor asuransi, ML dapat membantu meningkatkan efisiensi penyusunan kebijakan termasuk premi, klaim, dan lainnya. Algoritma ML sangat baik dalam memprediksi pengeluaran pasien yang kemungkinan berbiaya tinggi dan sangat membutuhkan.
 - Referensi:
-  ul Hassan, C. A., Iqbal, J., Hussain, S., AlSalman, H., Mosleh, M. A., & Sajid Ullah, S. (2021). A computational intelligence approach
-      for predicting medical insurance cost. Mathematical Problems in Engineering, 2021
+  ul Hassan, C. A., Iqbal, J., Hussain, S., AlSalman, H., Mosleh, M. A., & Sajid Ullah, S. (2021). A computational intelligence approach for predicting medical insurance cost. Mathematical Problems in Engineering, 2021
   Diakses melalui: https://onlinelibrary.wiley.com/doi/abs/10.1155/2021/1162553
 
 ## Business Understanding
-
 Suatu perusahaan asuransi kesehatan memiliki tanggung jawab yang besar terhadap perjanjian medis yang dilakukan dengan individu/kelompok. Perusahaan akan mengalami kerugian signifikan jika salah menentukan premi asuransi. Misalnya premi yang terlalu rendah akan menyebabkan kerugian finansial saat klaim melonjak, sedangkan premi yang terlalu tinggi menyebabkan kehilangan pelanggan akibat nilai yang tidak kompetitif. Selain itu, perusahaan asuransi tersebut juga tidak dapat mengidentifikasi pasien dengan resiko tinggi yang berkemungkinan dapat ditawarkan program kesehatan khusus.
 
 Oleh karena itu, penting bagi perusahaan asuransi kesehatan untuk mengetahui dan dapat memprediksi kejadian di masa depan dengan menggunakan suatu sistem. Hal ini akan berdampak positif pada penyusunan anggaran, perencanaan risiko, dan penyesuaian strategi akan mengandalkan teknologi atau automation judgement, yang mana dapat membantu pengambilan keputusan dan prosesnya tidak memakan waktu lama.
@@ -49,7 +47,7 @@ Dataset yang digunakan merupakan dataset publik yang banyak digunakan dalam pemb
 
 Link dataset: https://www.kaggle.com/datasets/mirichoi0218/insurance?resource=download
 
-**Rubrik/Kriteria Tambahan**:
+**Rubrik/Kriteria Tambahan**:\
 Melakukan Exploratory Data Analysis (EDA) secara bertahap:
 1. Mengecek informasi pada dataset dengan fungsi `info()`, menghasilkan:
    - Terdapat 3 kolom bertipe object yaitu sex, smoker, region. Kolom ini termasuk kolom non-numerik
@@ -73,18 +71,20 @@ Melakukan Exploratory Data Analysis (EDA) secara bertahap:
    a. Categorical features
       - Grafik fitur sex menunjukkan bahwa jenis kelamin laki-laki dan perempuan pada dataset hampir seimbang di angka 50.5% (675 sampel) dan 49.5% (662 sampel)
       - Grafik fitur smoker menunjukkan bahwa 20% pelanggan/pasien merupakan perokok. Selebihnya merupakan status perokok tidak aktif. Hal ini menandakan bahwa lebih dari setengah pelanggan/pasien dari perusahaan asuransi bukan perokok
-      - Grafik fitur region menunjukkan bahwa pelanggan/pasien terbanyak berasal dari region southeast dengan 27.2%, selebihnya sama rata berasal dari region lain 
+      - Grafik fitur region menunjukkan bahwa pelanggan/pasien terbanyak berasal dari region southeast dengan 27.2%, selebihnya sama rata berasal dari region lain
+        
    b. Numerical features
       - Rentang usia terbilang cukup luas, dengan konsentrasi yang lebih tinggi pada usia muda
       - Distribusi BMI cenderung mengikuti pola normal dengan sebagian besar nilai berada di rentang yang umum
       - Sebagian besar pelanggan/pasien tidak memiliki anak
       - Biaya medis yang dikenakan sangat bervariasi, dengan sebagian besar berada di tingkat yang lebih rendah dan sebagian kecil dengan biaya yang jauh lebih tinggi
 
-  7. Melakukan multivariate analysis untuk menilai relasi antar fitur terhadap fitur target (charges)
+  7. Melakukan multivariate analysis untuk menilai relasi antar fitur terhadap fitur target (charges)\
      a. Categorical features (menggunakan `catplot`)
         - Fitur sex memiliki pengaruh atau dampak yang kecil terhadap rata-rata biaya medis
         - Fitur smoker, memiliki pengaruh atau dampak yang besar terhadap rata-rata biaya medis.
         - Fitur region memiliki pengaruh atau dampak yang kecil terhadap rata-rata biaya medis.
+          
      b. Numerical features (menggunakan `pairplot` dan `heatmap`)
         - Fitur age (0.30) dan bmi (0.20) memiliki skor korelasi yang terindikasi positif dengan fitur target charges
         - Fitur children memiliki korelasi yang sangat kecil (0.07). Sehingga, fitur tersebut dapat di-drop.
@@ -102,8 +102,8 @@ Melakukan tiga tahap persiapan data, yaitu:
 
 ## Modeling
 Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan menggunakan tiga algoritma yaitu Linear Regression, Random Forest Regressor, dan Gradien Boosting Regressor. Kemudian, akan dievaluasi performa masing-masing algoritma dan menentukan algoritma mana yang memberikan hasil prediksi terbaik. Ketiga algoritma yang akan digunakan, antara lain:
-1. Linear Regression
-   Algoritma dasar dalam regresi yang mencoba mencari hubungan linear antara fitur dan target
+1. Linear Regression\
+   Algoritma dasar dalam regresi yang mencoba mencari hubungan linear antara fitur dan target\
    **Paramater yang digunakan**
    - Default dari `LinearRegression()`
    
@@ -120,8 +120,8 @@ Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan mengg
    - Tidak mampu menangkap hubungan non-linear.
    - Sensitif terhadap outlier.
 
-2. Random Forest Regressor
-   Metode ensemble berbasis pohon keputusan yang menggabungkan banyak pohon untuk meningkatkan akurasi dan mengurangi overfitting
+2. Random Forest Regressor\
+   Metode ensemble berbasis pohon keputusan yang menggabungkan banyak pohon untuk meningkatkan akurasi dan mengurangi overfitting\
    **Paramater yang digunakan**
    - `n_estimator=150`: jumlah pohon dalam hutan
    - `max_depth=15`: kedalaman maksimum setiap pohon
@@ -141,8 +141,8 @@ Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan mengg
    - Model cukup kompleks dan sulit untuk diinterpretasi
    - Waktu pelatihan lebih lama dibandingkan Linear Regression
 
-3. Gradient Boosting Regressor
-   Metode boosting yang membangun model secara bertahap, di mana setiap model baru mencoba memperbaiki kesalahan dari model sebelumnya.
+3. Gradient Boosting Regressor\
+   Metode boosting yang membangun model secara bertahap, di mana setiap model baru mencoba memperbaiki kesalahan dari model sebelumnya.\
    **Paramater yang digunakan**
    - `n_estimator=150`: jumlah boosting stage
    - `max_depth=15`: kedalaman maksimum setiap pohon
@@ -164,9 +164,9 @@ Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan mengg
 
 **Pemilihan model terbaik**\
 Berdasarkan hasil evaluasi pada data uji, model dengan performa terbaik dipilih dengan mempertimbangkan nilai MAE terendah, MSE terendah, dan R² tertinggi.\
-Jika dibandingkan, Gradient Boosting Regressor menunjukkan performa terbaik dengan nilai MAE paling rendah, MSE paling rendah, R² paling tinggi
+Jika dibandingkan, **Gradient Boosting Regressor** menunjukkan performa terbaik dengan nilai MAE paling rendah, MSE paling rendah, R² paling tinggi
 
-Oleh karena itu, Gradient Boosting Regressor dipilih sebagai model terbaik karena:
+Oleh karena itu, **Gradient Boosting Regressor** dipilih sebagai model terbaik karena:
 - Memiliki kemampuan menangkap hubungan kompleks dan non-linear antar fitur
 - Memberikan prediksi yang sangat akurat, menjadikannya sangat cocok ketika ketepatan prediksi menjadi prioritas utama.
 - Lebih baik dibandingkan Random Forest dan Linear Regression dalam hal generalisasi pada data ini
@@ -177,7 +177,7 @@ Untuk mengevaluasi performa model regresi yang dibangun, digunakan tiga metrik u
 MAE mengukur rata-rata selisih absolut antara nilai sebenarnya dengan hasil prediksi. Semakin kecil MAE, maka model semakin akurat.\
 Formula:
 
-![MAE Formula](./MAE_Formula.jpeg)\
+![MAE Formula](./MAE_Formula.jpeg)
 - yi = nilai aktual
 - 𝑦^𝑖 = nilai prediksi
 - n = jumlah total sampel
@@ -185,23 +185,34 @@ Formula:
 MAE menghitung rata-rata dari selisih absolut antara nilai aktual dan hasil prediksi. Misalnya jika model memprediksi biaya medis sebesar 12.000 tetapi aslinya 10.000, maka selisihnya 2.000. Jika banyak data yang seperti ini, MAE akan menunjukkan rata-rata seberapa jauh prediksi dari kenyataan
 
 **2. Mean Squared Error (MSE)**\
-MSE mengukur rata-rata dari kuadrat selisih antara nilai aktual dan prediksi. Karena nilai selisih dikuadratkan, MSE memberikan penalti lebih besar terhadap error yang besar.
+MSE mengukur rata-rata dari kuadrat selisih antara nilai aktual dan prediksi. Karena nilai selisih dikuadratkan, MSE memberikan penalti lebih besar terhadap error yang besar.\
+Formula:
 
+![MSE Formula](./MSE_Formula.jpeg)
 
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
+Mengukur rata-rata selisih kuadrat antara nilai aktual dan prediksi. Berbeda dengan MAE, karena error-nya dikuadratkan, kesalahan yang besar akan diberi penalti lebih besar. Misalnya hasil selisih 2.000 maka dikuadratkan menjadi 4.000.000. Maka, model yang sering membuat error besar akan terlihat jelas dari nilai MSE yang sangat besar.
 
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
+**3. R-Squared (R²)**\
+R² mengukur seberapa besar variasi dalam data yang dapat dijelaskan oleh model. Nilai R² berada dalam rentang 0 hingga 1. Semakin mendekati 1, semakin baik model menjelaskan data.\
+Formula:
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+![R Squared Formula](./R_Squared_Formula.jpeg)
+- SS<sub>res</sub> = jumlah kuadrat residual (kesalahan prediksi)
+- 𝑆𝑆<sub>𝑡𝑜𝑡</sub> = total variasi dari data terhadap rata-rata
+  
+R² mengukur seberapa besar variansi (penyebaran data) yang bisa dijelaskan oleh model.
+- R² = 1 → prediksi sempurna
+- R² = 0 → model tidak lebih baik dari sekadar menebak rata-rata
+- R² < 0 → model lebih buruk dari model yang hanya menebak rata-rata
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+Berikut adalah perbandingan hasil evaluasi dari tiga algoritma regresi yang digunakan:
+| Model              | MAE       | MSE              | R²   |
+|--------------------|-----------|------------------|------|
+| Linear Regression  | 4141.22   | 38,156,957.89    | 0.79 |
+| Random Forest      | 2705.10   | 22,177,523.66    | 0.88 |
+| Gradient Boosting  | 2403.83   | 18,097,718.56    | 0.90 |
 
-**---Ini adalah bagian akhir laporan---**
-
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
-
+Dari hasil tersebut, dapat disimpulkan bahwa **Gradient Boosting Regressor** menunjukkan performa terbaik karena memiliki:
+- Nilai MAE paling rendah, artinya rata-rata kesalahan prediksinya paling kecil
+- Nilai MSE paling rendah, menunjukkan prediksi model relatif konsisten dan tidak terlalu jauh dari nilai aktual
+- Nilai R² tertinggi (0.90), yang berarti model mampu menjelaskan 90% variasi dari target
