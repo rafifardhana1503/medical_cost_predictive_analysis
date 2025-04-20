@@ -1,7 +1,6 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Laporan Proyek Machine Learning - Rafif Idris Ardhana
 
 ## Domain Proyek: Kesehatan
-
 Perusahaan asuransi kesehatan adalah lembaga yang menyediakan perlindungan finansial bagi individu terhadap biaya medis yang tidak terduga. Suatu perusahaan asuransi bertanggung jawab untuk menanggung sebagian atau seluruh biaya perawatan medis yang timbul akibat penyakit atau kecelakaan individu/kelompok. Bagi suatu perusahaan asuransi penting untuk memperkirakan kisaran biaya yang perlu dipersiapkan untuk individu/kelompok di masa depan. Perkiraan atau prediksi ini memungkinkan perusahaan asuransi menyesuaikan premi secara adil dan efisien.
 
 **Rubrik/Kriteria Tambahan**:
@@ -18,14 +17,10 @@ Suatu perusahaan asuransi kesehatan memiliki tanggung jawab yang besar terhadap 
 Oleh karena itu, penting bagi perusahaan asuransi kesehatan untuk mengetahui dan dapat memprediksi kejadian di masa depan dengan menggunakan suatu sistem. Hal ini akan berdampak positif pada penyusunan anggaran, perencanaan risiko, dan penyesuaian strategi akan mengandalkan teknologi atau automation judgement, yang mana dapat membantu pengambilan keputusan dan prosesnya tidak memakan waktu lama.
 
 ### Problem Statements
-
-Menjelaskan pernyataan masalah latar belakang:
 - Dari serangkaian atribut(fitur) yang ada, atribut(fitur) apa yang paling berpengaruh terhadap biaya medis (charge) asuransi?
 - Bagaimana cara memprediksi biaya medis (charges) yang akan dikeluarkan seseorang berdasarkan fitur yang ada?
 
 ### Goals
-
-Menjelaskan tujuan dari pernyataan masalah:
 - Mengetahui atribut(fitur) yang paling berkorelasi dengan biaya medis (charges)
 - Membuat machine learning yang dapat memprediksi biaya medis (charges) berdasarkan fitur yang ada
 
@@ -56,25 +51,25 @@ Link dataset: https://www.kaggle.com/datasets/mirichoi0218/insurance?resource=do
 
 **Rubrik/Kriteria Tambahan**:
 Melakukan Exploratory Data Analysis (EDA) secara bertahap:
-1. Mengecek informasi pada dataset dengan fungsi info(), menghasilkan:
+1. Mengecek informasi pada dataset dengan fungsi `info()`, menghasilkan:
    - Terdapat 3 kolom bertipe object yaitu sex, smoker, region. Kolom ini termasuk kolom non-numerik
    - Terdapat 2 kolom bertipe integer yaitu age dan children
    - Terdapat 2 kolom bertipe float yaitu bmi dan charges
 
-2. Mengecek deskripsi statistik dengan fungsi describe(), menghasilkan:
+2. Mengecek deskripsi statistik dengan fungsi `describe()`, menghasilkan:
    - Indikasi atau logika dinilai seluruhnya masuk akal terhadap nilai numerik
    
-3. Mengecek duplikasi data dengan fungsi duplicated().sum(), menghasilkan:
-   - Jumlah duplikasi data berjumlah 1 baris dan dilakukan penghapusan data pada baris tersebut menggunakan fungsi drop(). Sehingga baris berjumlah 1.337
+3. Mengecek duplikasi data dengan fungsi `duplicated().sum()`, menghasilkan:
+   - Jumlah duplikasi data berjumlah 1 baris dan dilakukan penghapusan data pada baris tersebut menggunakan fungsi `drop()`. Sehingga baris berjumlah 1.337
 
-4. Mengecek missing value dengan fungsi isna().sum(), menghasilkan tidak terindikasinya nilai yang hilang di setiap fitur yang ada
+4. Mengecek missing value dengan fungsi `isna().sum()`, menghasilkan tidak terindikasinya nilai yang hilang di setiap fitur yang ada
 
-5. Mendeteksi outlier dengan boxplot, menghasilkan:
+5. Mendeteksi outlier dengan `boxplot`, menghasilkan:
    - Fitur age tidak terdapat outlier
    - Fitur BMI terdapat outlier, tetapi hal ini dianggap normal, sebab nilai BMI masih masuk akal direntang 10-60
    - Fitur charges terdapat outlier, tetapi hal tidak akan ditangani, sebab kita menginginkan model memprediksi nilai ekstrem, sebagai bahan prediksi perusahaan asuransi dengan berbagai faktor yang ada
 
-6. Melakukan univariate analysis terhadap masing-masing fitur dengan countplot dan histogram, menghasilkan:
+6. Melakukan univariate analysis terhadap masing-masing fitur dengan `countplot` dan `histogram`, menghasilkan:
    a. Categorical features
       - Grafik fitur sex menunjukkan bahwa jenis kelamin laki-laki dan perempuan pada dataset hampir seimbang di angka 50.5% (675 sampel) dan 49.5% (662 sampel)
       - Grafik fitur smoker menunjukkan bahwa 20% pelanggan/pasien merupakan perokok. Selebihnya merupakan status perokok tidak aktif. Hal ini menandakan bahwa lebih dari setengah pelanggan/pasien dari perusahaan asuransi bukan perokok
@@ -86,11 +81,11 @@ Melakukan Exploratory Data Analysis (EDA) secara bertahap:
       - Biaya medis yang dikenakan sangat bervariasi, dengan sebagian besar berada di tingkat yang lebih rendah dan sebagian kecil dengan biaya yang jauh lebih tinggi
 
   7. Melakukan multivariate analysis untuk menilai relasi antar fitur terhadap fitur target (charges)
-     a. Categorical features (menggunakan catplot)
+     a. Categorical features (menggunakan `catplot`)
         - Fitur sex memiliki pengaruh atau dampak yang kecil terhadap rata-rata biaya medis
         - Fitur smoker, memiliki pengaruh atau dampak yang besar terhadap rata-rata biaya medis.
         - Fitur region memiliki pengaruh atau dampak yang kecil terhadap rata-rata biaya medis.
-     b. Numerical features (menggunakan pairplot dan heatmap)
+     b. Numerical features (menggunakan `pairplot` dan `heatmap`)
         - Fitur age (0.30) dan bmi (0.20) memiliki skor korelasi yang terindikasi positif dengan fitur target charges
         - Fitur children memiliki korelasi yang sangat kecil (0.07). Sehingga, fitur tersebut dapat di-drop.
 
@@ -101,16 +96,16 @@ Melakukan tiga tahap persiapan data, yaitu:
 3. Standarisasi.
 
 **Rubrik/Kriteria Tambahan**:
-1. Encoding fitur kategori menggunakan OneHotEncoding dan LabelEncoder. Hal ini dilakukan sebab model regresi membutuhkan input numerik, maka dari itu fitur kategori yang bertipe object di rubah menjadi numerik agar model mengenali data kategorikal
-2. Membagi dataset menjadi data train dan data test dengan perbandingan 80:20, sebab data yang kita miliki berada di kisaran 1000an sampel sehingga ini menjadi ideal. Hal ini dilakukan guna melakukan tahap training pada model menggunakan data train, lalu melakukan tahap evaluasi menggunakan data test
-3. Standarisasi (scaling) menggunakan StandardScaler terhadap data yang telah displit sebelumnya. StandardScaler menghasilkan distribusi angka rentang 1,0,-1. Hal ini dilakukan agar algoritma stidak terpengaruh oleh perbedaan skala antar fitur.
+1. Encoding fitur kategori menggunakan `OneHotEncoding` dan `LabelEncoder`. Hal ini dilakukan sebab model regresi membutuhkan input numerik, maka dari itu fitur kategori yang bertipe object di rubah menjadi numerik agar model mengenali data kategorikal
+2. Membagi dataset menjadi data train dan data test dengan perbandingan 80:20 menggunakan `train_test_split`, sebab data yang kita miliki berada di kisaran 1000an sampel sehingga ini menjadi ideal. Hal ini dilakukan guna melakukan tahap training pada model menggunakan data train, lalu melakukan tahap evaluasi menggunakan data test
+3. Standarisasi (scaling) menggunakan `StandardScaler` terhadap data yang telah displit sebelumnya. `StandardScaler` menghasilkan distribusi angka rentang 1,0,-1. Hal ini dilakukan agar algoritma stidak terpengaruh oleh perbedaan skala antar fitur.
 
 ## Modeling
 Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan menggunakan tiga algoritma yaitu Linear Regression, Random Forest Regressor, dan Gradien Boosting Regressor. Kemudian, akan dievaluasi performa masing-masing algoritma dan menentukan algoritma mana yang memberikan hasil prediksi terbaik. Ketiga algoritma yang akan digunakan, antara lain:
 1. Linear Regression
    Algoritma dasar dalam regresi yang mencoba mencari hubungan linear antara fitur dan target
    **Paramater yang digunakan**
-   - Default dari LinearRegression()
+   - Default dari `LinearRegression()`
    
    **Hasil Evaluasi**
    - MAE: 4141.22
@@ -128,10 +123,10 @@ Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan mengg
 2. Random Forest Regressor
    Metode ensemble berbasis pohon keputusan yang menggabungkan banyak pohon untuk meningkatkan akurasi dan mengurangi overfitting
    **Paramater yang digunakan**
-   - n_estimator=150: jumlah pohon dalam hutan
-   - max_depth=15: kedalaman maksimum setiap pohon
-   - random_state=123: mengontrol random number generator yang digunakan
-   - n_jobs=-1: memastikan semua proses berjalan secara paralel
+   - `n_estimator=150`: jumlah pohon dalam hutan
+   - `max_depth=15`: kedalaman maksimum setiap pohon
+   - `random_state=123`: mengontrol random number generator yang digunakan
+   - `n_jobs=-1`: memastikan semua proses berjalan secara paralel
    
    **Hasil Evaluasi**
    - MAE: 2705.10
@@ -149,10 +144,10 @@ Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan mengg
 3. Gradient Boosting Regressor
    Metode boosting yang membangun model secara bertahap, di mana setiap model baru mencoba memperbaiki kesalahan dari model sebelumnya.
    **Paramater yang digunakan**
-   - n_estimator=150: jumlah boosting stage
-   - max_depth=15: kedalaman maksimum setiap pohon
-   - learning_rate=0.05: seberapa besar kontribusi setiap pohon terhadap model akhir
-   - random_state=42: mengontrol random number generator yang digunakan
+   - `n_estimator=150`: jumlah boosting stage
+   - `max_depth=15`: kedalaman maksimum setiap pohon
+   - `learning_rate=0.05`: seberapa besar kontribusi setiap pohon terhadap model akhir
+   - `random_state=42`: mengontrol random number generator yang digunakan
    
    **Hasil Evaluasi**
    - MAE: 2403.83
