@@ -196,7 +196,7 @@ R² mengukur seberapa besar variansi (penyebaran data) yang bisa dijelaskan oleh
 - R² = 0 → model tidak lebih baik dari sekadar menebak rata-rata
 - R² < 0 → model lebih buruk dari model yang hanya menebak rata-rata
 
-**Hasil Evaluasi Model**
+**Hasil Evaluasi Model**\
 Berikut adalah perbandingan hasil evaluasi dari tiga algoritma regresi yang digunakan:
 | Model              | MAE       | MSE              | R²   |
 |--------------------|-----------|------------------|------|
@@ -234,7 +234,7 @@ Perusahaan asuransi kesehatan harus mampu mencegah beberapa kerugian yang diangg
    - **Memilih model terbaik berdasarkan evaluasi metrik**\
      Model Gradient Boosting dipilih sebagai model final karena memiliki MAE dan MSE paling rendah serta R² tertinggi. Pemilihan model terbaik ini berdampak pada tingkat kemampuan prediksi machine learning yang akan digunakan perusahaan asuransi kesehatan
 
-Dengan menggunakan model dan hasil yang telah dirancang, perusahaan dapat mencegah resiko kerugian, seperti:
+Dengan menggunakan model dan hasil yang telah dirancang terutama model **Gradient Boosting Regressor**, perusahaan dapat mencegah resiko kerugian, seperti:
 - Prediksi biaya medis yang akurat dapat membantu merencanakan premi yang adil dan kompetitif
 - Kemampuan identifikasi risiko tinggi menjadi lebih baik untuk memungkinkan pemberian program kesehatan khusus pada individu tertentu
 - Optimalisasi perencanaan keuangan dan pengendalian klaim, berkontribusi pada efisiensi manajemen risiko perusahaan
