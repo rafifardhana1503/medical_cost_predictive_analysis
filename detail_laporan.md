@@ -49,25 +49,24 @@ Link dataset: https://www.kaggle.com/datasets/mirichoi0218/insurance?resource=do
 
 **Rubrik/Kriteria Tambahan**:\
 Melakukan Exploratory Data Analysis (EDA) secara bertahap:
-1. Mengecek informasi pada dataset dengan fungsi `info()`, menghasilkan:
+1. Mengecek informasi pada dataset dengan fungsi `info()`\
+   **Menghasilkan informasi:**
    - Terdapat 3 kolom bertipe object yaitu sex, smoker, region. Kolom ini termasuk kolom non-numerik
    - Terdapat 2 kolom bertipe integer yaitu age dan children
    - Terdapat 2 kolom bertipe float yaitu bmi dan charges
 
-2. Mengecek deskripsi statistik dengan fungsi `describe()`, menghasilkan:
+2. Mengecek deskripsi statistik dengan fungsi `describe()`\
+   **Menghasilkan informasi:**
    - Indikasi atau logika dinilai seluruhnya masuk akal terhadap nilai numerik
-   
-3. Mengecek duplikasi data dengan fungsi `duplicated().sum()`, menghasilkan:
-   - Jumlah duplikasi data berjumlah 1 baris dan dilakukan penghapusan data pada baris tersebut menggunakan fungsi `drop()`. Sehingga baris berjumlah 1.337
 
-4. Mengecek missing value dengan fungsi `isna().sum()`, menghasilkan tidak terindikasinya nilai yang hilang di setiap fitur yang ada
-
-5. Mendeteksi outlier dengan `boxplot`, menghasilkan:
+3. Mendeteksi outlier dengan `boxplot`\
+   **Menghasilkan informasi:**
    - Fitur age tidak terdapat outlier
    - Fitur BMI terdapat outlier, tetapi hal ini dianggap normal, sebab nilai BMI masih masuk akal direntang 10-60
    - Fitur charges terdapat outlier, tetapi hal tidak akan ditangani, sebab kita menginginkan model memprediksi nilai ekstrem, sebagai bahan prediksi perusahaan asuransi dengan berbagai faktor yang ada
 
-6. Melakukan univariate analysis terhadap masing-masing fitur dengan `countplot` dan `histogram`, menghasilkan:\
+4. Melakukan univariate analysis terhadap masing-masing fitur dengan `countplot` dan `histogram`\
+   **Menghasilkan informasi:**\
    a. Categorical features
       - Grafik fitur sex menunjukkan bahwa jenis kelamin laki-laki dan perempuan pada dataset hampir seimbang di angka 50.5% (675 sampel) dan 49.5% (662 sampel)
       - Grafik fitur smoker menunjukkan bahwa 20% pelanggan/pasien merupakan perokok. Selebihnya merupakan status perokok tidak aktif. Hal ini menandakan bahwa lebih dari setengah pelanggan/pasien dari perusahaan asuransi bukan perokok
@@ -79,26 +78,36 @@ Melakukan Exploratory Data Analysis (EDA) secara bertahap:
       - Sebagian besar pelanggan/pasien tidak memiliki anak
       - Biaya medis yang dikenakan sangat bervariasi, dengan sebagian besar berada di tingkat yang lebih rendah dan sebagian kecil dengan biaya yang jauh lebih tinggi
 
-  7. Melakukan multivariate analysis untuk menilai relasi antar fitur terhadap fitur target (charges)\
-     a. Categorical features (menggunakan `catplot`)
-        - Fitur sex memiliki pengaruh atau dampak yang kecil terhadap rata-rata biaya medis
-        - Fitur smoker, memiliki pengaruh atau dampak yang besar terhadap rata-rata biaya medis.
-        - Fitur region memiliki pengaruh atau dampak yang kecil terhadap rata-rata biaya medis.
+5. Melakukan multivariate analysis untuk menilai relasi antar fitur terhadap fitur target (charges)\
+   **Menghasilkan informasi:**\
+   a. Categorical features (menggunakan `catplot`)\
+      - Fitur sex memiliki pengaruh atau dampak yang kecil terhadap rata-rata biaya medis
+      - Fitur smoker, memiliki pengaruh atau dampak yang besar terhadap rata-rata biaya medis.
+      - Fitur region memiliki pengaruh atau dampak yang kecil terhadap rata-rata biaya medis.
           
-     b. Numerical features (menggunakan `pairplot` dan `heatmap`)
-        - Fitur age (0.30) dan bmi (0.20) memiliki skor korelasi yang terindikasi positif dengan fitur target charges
-        - Fitur children memiliki korelasi yang sangat kecil (0.07). Sehingga, fitur tersebut dapat di-drop.
+   b. Numerical features (menggunakan `pairplot` dan `heatmap`)\
+      - Fitur age (0.30) dan bmi (0.20) memiliki skor korelasi yang terindikasi positif dengan fitur target charges
+      - Fitur children memiliki korelasi yang sangat kecil (0.07). Sehingga, fitur tersebut dapat di-drop.
 
 ## Data Preparation
-Melakukan tiga tahap persiapan data, yaitu:
-1. Encoding fitur kategori
-2. Pembagian dataset dengan fungsi train_test_split dari library sklearn.
-3. Standarisasi.
+Melakukan lima tahap persiapan data, yaitu:
+1. Menangani Duplikasi Data
+2. Mengecek Missing Value
+3. Encoding fitur kategori
+4. Pembagian dataset dengan fungsi train_test_split dari library sklearn.
+5. Standarisasi.
 
 **Rubrik/Kriteria Tambahan**:
-1. Encoding fitur kategori menggunakan `OneHotEncoding` dan `LabelEncoder`. Hal ini dilakukan sebab model regresi membutuhkan input numerik, maka dari itu fitur kategori yang bertipe object di rubah menjadi numerik agar model mengenali data kategorikal
-2. Membagi dataset menjadi data train dan data test dengan perbandingan 80:20 menggunakan `train_test_split`, sebab data yang kita miliki berada di kisaran 1000an sampel sehingga ini menjadi ideal. Hal ini dilakukan guna melakukan tahap training pada model menggunakan data train, lalu melakukan tahap evaluasi menggunakan data test
-3. Standarisasi (scaling) menggunakan `StandardScaler` terhadap data yang telah displit sebelumnya. `StandardScaler` menghasilkan distribusi angka rentang 1,0,-1. Hal ini dilakukan agar algoritma stidak terpengaruh oleh perbedaan skala antar fitur.
+1. Mengecek duplikasi data dengan fungsi `duplicated().sum()`\
+   - Jumlah duplikasi data berjumlah 1 baris dan dilakukan penghapusan data pada baris tersebut menggunakan fungsi `drop()`. Sehingga baris berjumlah 1.337
+2. Mengecek missing value dengan fungsi `isna().sum()`\
+   - Tidak terindikasinya nilai yang hilang di setiap fitur yang ada
+3. Encoding fitur kategori menggunakan `OneHotEncoding` dan `LabelEncoder`\
+   - Hal ini dilakukan sebab model regresi membutuhkan input numerik, maka dari itu fitur kategori yang bertipe object di rubah menjadi numerik agar model mengenali data kategorikal
+4. Membagi dataset menjadi data train dan data test dengan perbandingan 80:20 menggunakan `train_test_split`\
+   - Data yang kita miliki berada di kisaran 1000an sampel sehingga ini menjadi ideal. Hal ini dilakukan guna melakukan tahap training pada model menggunakan data train, lalu melakukan tahap evaluasi menggunakan data test
+5. Standarisasi (scaling) menggunakan `StandardScaler` terhadap data yang telah displit sebelumnya\
+   - `StandardScaler` menghasilkan distribusi angka rentang 1,0,-1. Hal ini dilakukan agar algoritma stidak terpengaruh oleh perbedaan skala antar fitur.
 
 ## Modeling
 Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan menggunakan tiga algoritma yaitu Linear Regression, Random Forest Regressor, dan Gradien Boosting Regressor. Kemudian, akan dievaluasi performa masing-masing algoritma dan menentukan algoritma mana yang memberikan hasil prediksi terbaik. Ketiga algoritma yang akan digunakan, antara lain:\
