@@ -107,11 +107,6 @@ Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan mengg
    
    **Paramater yang digunakan**
    - Default dari `LinearRegression()`
-   
-   **Hasil Evaluasi**
-   - MAE: 4141.22
-   - MSE: 38,156,957.89
-   - R²: 0.79
 
    **Kelebihan**
    - Sederhana dan cepat untuk dilatih
@@ -129,11 +124,6 @@ Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan mengg
    - `max_depth=15`: kedalaman maksimum setiap pohon
    - `random_state=123`: mengontrol random number generator yang digunakan
    - `n_jobs=-1`: memastikan semua proses berjalan secara paralel
-   
-   **Hasil Evaluasi**
-   - MAE: 2705.10
-   - MSE: 22,177,523.66
-   - R²: 0.88
 
    **Kelebihan**
    - Mampu menangani data kompleks dan hubungan non-linear
@@ -148,14 +138,9 @@ Pada tahap ini, tahap pengembangan model machine learning dilakukan dengan mengg
    
    **Paramater yang digunakan**
    - `n_estimator=150`: jumlah boosting stage
-   - `max_depth=15`: kedalaman maksimum setiap pohon
+   - `max_depth=3`: kedalaman maksimum setiap pohon
    - `learning_rate=0.05`: seberapa besar kontribusi setiap pohon terhadap model akhir
    - `random_state=42`: mengontrol random number generator yang digunakan
-   
-   **Hasil Evaluasi**
-   - MAE: 2403.83
-   - MSE: 18,097,718.56
-   - R²: 0.90
 
    **Kelebihan**
    - Sering memberikan akurasi prediksi yang tinggi
@@ -175,12 +160,14 @@ Oleh karena itu, **Gradient Boosting Regressor** dipilih sebagai model terbaik k
 - Lebih baik dibandingkan Random Forest dan Linear Regression dalam hal generalisasi pada data ini
 
 ## Evaluation
+**Evaluasi Numerik**\
 Untuk mengevaluasi performa model regresi yang dibangun, digunakan tiga metrik utama, yaitu Mean Absolute Error (MAE), Mean Squared Error (MSE), R-Squared (R²)\
 **1. Mean Absolute Error (MAE)**\
 MAE mengukur rata-rata selisih absolut antara nilai sebenarnya dengan hasil prediksi. Semakin kecil MAE, maka model semakin akurat.\
 Formula:
 
-![MAE Formula](./MAE_Formula.jpeg)
+![MAE Formula](https://github.com/user-attachments/assets/fb6a4fff-0e05-4a2c-99a7-e4e5549f87f1)
+
 - yi = nilai aktual
 - 𝑦^𝑖 = nilai prediksi
 - n = jumlah total sampel
@@ -191,7 +178,7 @@ MAE menghitung rata-rata dari selisih absolut antara nilai aktual dan hasil pred
 MSE mengukur rata-rata dari kuadrat selisih antara nilai aktual dan prediksi. Karena nilai selisih dikuadratkan, MSE memberikan penalti lebih besar terhadap error yang besar.\
 Formula:
 
-![MSE Formula](./MSE_Formula.jpeg)
+![MSE_Formula](https://github.com/user-attachments/assets/b8d3c59e-b3e9-4fcc-b6d5-0f79dcb9ae6b)
 
 Mengukur rata-rata selisih kuadrat antara nilai aktual dan prediksi. Berbeda dengan MAE, karena error-nya dikuadratkan, kesalahan yang besar akan diberi penalti lebih besar. Misalnya hasil selisih 2.000 maka dikuadratkan menjadi 4.000.000. Maka, model yang sering membuat error besar akan terlihat jelas dari nilai MSE yang sangat besar.
 
@@ -199,7 +186,8 @@ Mengukur rata-rata selisih kuadrat antara nilai aktual dan prediksi. Berbeda den
 R² mengukur seberapa besar variasi dalam data yang dapat dijelaskan oleh model. Nilai R² berada dalam rentang 0 hingga 1. Semakin mendekati 1, semakin baik model menjelaskan data.\
 Formula:
 
-![R Squared Formula](./R_Squared_Formula.jpeg)
+![R_Squared_Formula](https://github.com/user-attachments/assets/e047e1ed-208c-4474-abe0-3caf55c903f9)
+
 - SS<sub>res</sub> = jumlah kuadrat residual (kesalahan prediksi)
 - 𝑆𝑆<sub>𝑡𝑜𝑡</sub> = total variasi dari data terhadap rata-rata
   
@@ -208,6 +196,7 @@ R² mengukur seberapa besar variansi (penyebaran data) yang bisa dijelaskan oleh
 - R² = 0 → model tidak lebih baik dari sekadar menebak rata-rata
 - R² < 0 → model lebih buruk dari model yang hanya menebak rata-rata
 
+**Hasil Evaluasi Model**
 Berikut adalah perbandingan hasil evaluasi dari tiga algoritma regresi yang digunakan:
 | Model              | MAE       | MSE              | R²   |
 |--------------------|-----------|------------------|------|
@@ -219,5 +208,34 @@ Dari hasil tersebut, dapat disimpulkan bahwa **Gradient Boosting Regressor** men
 - Nilai MAE paling rendah, artinya rata-rata kesalahan prediksinya paling kecil
 - Nilai MSE paling rendah, menunjukkan prediksi model relatif konsisten dan tidak terlalu jauh dari nilai aktual
 - Nilai R² tertinggi (0.90), yang berarti model mampu menjelaskan 90% variasi dari target
-  
-Model ini dapat digunakan perusahaan asuransi untuk memprediksi kebutuhan perusahaan di masa depan
+
+**Evaluasi Deskriptif**\
+Perusahaan asuransi kesehatan harus mampu mencegah beberapa kerugian yang dianggap merugikan perusahaan seperti menghindari kerugian finansial akibat premi yang salah ditentukan (terlalu rendah atau terlalu tinggi), mengidentifikasi individu berisiko tinggi, sehingga dapat ditawarkan program kesehatan preventif, merencanakan anggaran dan strategi keuangan secara tepat, berbasis prediksi yang akurat terhadap biaya medis. Maka dari itu, perusahaan asuransi kesehatan perlu memanfaatkan teknologi (ML) untuk pengambilan keputusan yang lebih cepat dan efisien dengan menggunakan algoritma yang performanya dianggap baik bagi kasus perusahaan. 
+
+1. **Evaluasi terhadap Problem Statement**
+    - **Dari serangkaian atribut(fitur) yang ada, atribut(fitur) apa yang paling berpengaruh terhadap biaya medis (charge) asuransi?**\
+      Masalah ini telah berhasil dijawab melalui proses eksplorasi data dan analisis feature importance. Fitur-fitur yang memiliki pengaruh terhadap biaya medis akan dijawab di bagian Evaluasi Goals.Pengetahuan ini memungkinkan perusahaan untuk fokus pada faktor-faktor utama dalam penetapan premi asuransi.\
+    - **Bagaimana cara memprediksi biaya medis (charges) yang akan dikeluarkan seseorang berdasarkan fitur yang ada?**\
+      Masalah ini telah berhasil dijawab dengan membangun tiga model regresi, yaitu Linear Regression (baseline), Random Forest Regressor, dan Gradient Boosting Regressor, perusahaan kini dapat memprediksi biaya medis secara lebih akurat. Gradient Boosting muncul sebagai model terbaik, memberikan prediksi yang dapat diandalkan dalam pengambilan keputusan terkait premi dan pengelolaan risiko.
+
+2. **Evaluasi terhadap Goals**
+    - **Mengetahui atribut yang paling berkorelasi dengan biaya medis (charges)**\
+      Tujuan ini tercapai melalui analisis korelasi dan feature importance dari model, sehingga perusahaan dapat mengenali faktor risiko utama. Fitur-fitur seperti usia (age), indeks massa tubuh (BMI), dan status merokok (smoker) terbukti memiliki pengaruh paling besar terhadap biaya medis seseorang.
+    - **Membuat machine learning yang dapat memprediksi biaya medis (charges) berdasarkan fitur yang ada**\
+      Tujuan ini tercapai melalui pembangunan model machine learning, kemudian dibandingkan berdasarkan metrik evaluasi. Model Gradient Boosting memberikan performa terbaik dengan R² sebesar 0.90, MAE terendah, dan MSE paling kecil. Model ini dapat digunakan perusahaan asuransi untuk memprediksi kebutuhan perusahaan di masa depan
+      
+3. **Evaluasi terhadap Solution Statements**
+   - **Membangun model baseline menggunakan Linear Regression**\
+     Model baseline berhasil dibangun dan memberikan dampak untuk tolok ukur awal performa model-model lainnya
+   - **Membangun model alternatif menggunakan Random Forest Regressor dan Gradient Boosting Regressor**\
+     Kedua model berhasil dikembangkan dan memberikan dampak performa yang lebih baik daripada model baseline, khususnya Gradient Boosting.
+   - **Mengukur performa model menggunakan MAE, MSE, dan R² Score**\
+     Berhasil melakukan proses evaluasi yang dilakukan dengan tiga metrik utama. Hal ini berdampak pada hasil yang diperoleh yaitu lebih objektif dan menyeluruh.
+   - **Memilih model terbaik berdasarkan evaluasi metrik**\
+     Model Gradient Boosting dipilih sebagai model final karena memiliki MAE dan MSE paling rendah serta R² tertinggi. Pemilihan model terbaik ini berdampak pada tingkat kemampuan prediksi machine learning yang akan digunakan perusahaan asuransi kesehatan
+
+Dengan menggunakan model dan hasil yang telah dirancang, perusahaan dapat mencegah resiko kerugian, seperti:
+- Prediksi biaya medis yang akurat dapat membantu merencanakan premi yang adil dan kompetitif
+- Kemampuan identifikasi risiko tinggi menjadi lebih baik untuk memungkinkan pemberian program kesehatan khusus pada individu tertentu
+- Optimalisasi perencanaan keuangan dan pengendalian klaim, berkontribusi pada efisiensi manajemen risiko perusahaan
+- Pemanfaatan teknologi mendukung pengambilan keputusan yang cepat dan berorientasikan data
