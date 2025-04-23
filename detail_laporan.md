@@ -67,7 +67,7 @@ Melakukan Exploratory Data Analysis (EDA) secara bertahap:
    - Fitur BMI terdapat outlier, tetapi hal ini dianggap normal, sebab nilai BMI masih masuk akal direntang 10-60
    - Fitur charges terdapat outlier, tetapi hal tidak akan ditangani, sebab kita menginginkan model memprediksi nilai ekstrem, sebagai bahan prediksi perusahaan asuransi dengan berbagai faktor yang ada
 
-6. Melakukan univariate analysis terhadap masing-masing fitur dengan `countplot` dan `histogram`, menghasilkan:
+6. Melakukan univariate analysis terhadap masing-masing fitur dengan `countplot` dan `histogram`, menghasilkan:\
    a. Categorical features
       - Grafik fitur sex menunjukkan bahwa jenis kelamin laki-laki dan perempuan pada dataset hampir seimbang di angka 50.5% (675 sampel) dan 49.5% (662 sampel)
       - Grafik fitur smoker menunjukkan bahwa 20% pelanggan/pasien merupakan perokok. Selebihnya merupakan status perokok tidak aktif. Hal ini menandakan bahwa lebih dari setengah pelanggan/pasien dari perusahaan asuransi bukan perokok
