@@ -61,52 +61,86 @@ Melakukan Exploratory Data Analysis (EDA) secara bertahap:
 
 3. Mendeteksi outlier dengan `boxplot`\
    **Menghasilkan informasi:**
-   - Fitur age tidak terdapat outlier
-   - Fitur BMI terdapat outlier, tetapi hal ini dianggap normal, sebab nilai BMI masih masuk akal direntang 10-60
-   - Fitur charges terdapat outlier, tetapi hal tidak akan ditangani, sebab kita menginginkan model memprediksi nilai ekstrem, sebagai bahan prediksi perusahaan asuransi dengan berbagai faktor yang ada
+   - Fitur age tidak terdapat outlier\
+     Visualisasi:\
+     ![Screenshot 2025-04-23 203225](https://github.com/user-attachments/assets/244da73f-38f0-4988-b4cd-1ea0019fdea1)
+     
+   - Fitur BMI terdapat outlier, tetapi hal ini dianggap normal, sebab nilai BMI masih masuk akal direntang 10-60\
+     Visualisasi:\
+     ![Screenshot 2025-04-23 203239](https://github.com/user-attachments/assets/791cfed9-debb-447e-876d-1eaae63237be)
+
+   - Fitur charges terdapat outlier, tetapi hal tidak akan ditangani, sebab kita menginginkan model memprediksi nilai ekstrem, sebagai bahan prediksi perusahaan asuransi dengan berbagai faktor yang ada\
+     Visualisasi:\
+     ![Screenshot 2025-04-23 203253](https://github.com/user-attachments/assets/794433a2-9fa6-4711-83f1-20242b3d4d9c)
 
 4. Melakukan univariate analysis terhadap masing-masing fitur dengan `countplot` dan `histogram`\
    **Menghasilkan informasi:**\
    a. Categorical features
-      - Grafik fitur sex menunjukkan bahwa jenis kelamin laki-laki dan perempuan pada dataset hampir seimbang di angka 50.5% (675 sampel) dan 49.5% (662 sampel)
-      - Grafik fitur smoker menunjukkan bahwa 20% pelanggan/pasien merupakan perokok. Selebihnya merupakan status perokok tidak aktif. Hal ini menandakan bahwa lebih dari setengah pelanggan/pasien dari perusahaan asuransi bukan perokok
-      - Grafik fitur region menunjukkan bahwa pelanggan/pasien terbanyak berasal dari region southeast dengan 27.2%, selebihnya sama rata berasal dari region lain
-        
+      - Grafik fitur sex menunjukkan bahwa jenis kelamin laki-laki dan perempuan pada dataset hampir seimbang di angka 50.5% (675 sampel) dan 49.5% (662 sampel)\
+        Visualisasi:\
+        ![Screenshot 2025-04-23 203314](https://github.com/user-attachments/assets/d2e51245-aeb7-4cf1-8796-3c2e45fb12fd)
+
+      - Grafik fitur smoker menunjukkan bahwa 20% pelanggan/pasien merupakan perokok. Selebihnya merupakan status perokok tidak aktif. Hal ini menandakan bahwa lebih dari setengah pelanggan/pasien dari perusahaan asuransi bukan perokok\
+        Visualisasi:\
+        ![Screenshot 2025-04-23 203328](https://github.com/user-attachments/assets/740f1fac-67de-4a06-9909-51983b6c28ac)
+
+      - Grafik fitur region menunjukkan bahwa pelanggan/pasien terbanyak berasal dari region southeast dengan 27.2%, selebihnya sama rata berasal dari region lain\
+        Visualisasi:\
+        ![Screenshot 2025-04-23 203343](https://github.com/user-attachments/assets/55df7b29-441c-4085-8868-ca39a3a58ac9)
+
    b. Numerical features
       - Rentang usia terbilang cukup luas, dengan konsentrasi yang lebih tinggi pada usia muda
       - Distribusi BMI cenderung mengikuti pola normal dengan sebagian besar nilai berada di rentang yang umum
       - Sebagian besar pelanggan/pasien tidak memiliki anak
-      - Biaya medis yang dikenakan sangat bervariasi, dengan sebagian besar berada di tingkat yang lebih rendah dan sebagian kecil dengan biaya yang jauh lebih tinggi
+      - Biaya medis yang dikenakan sangat bervariasi, dengan sebagian besar berada di tingkat yang lebih rendah dan sebagian kecil dengan biaya yang jauh lebih tinggi\
+        Visualisasi:\
+        ![Screenshot 2025-04-23 203359](https://github.com/user-attachments/assets/23eadc29-1460-49aa-9654-023a2206c968)
+
 
 5. Melakukan multivariate analysis untuk menilai relasi antar fitur terhadap fitur target (charges)\
    **Menghasilkan informasi:**\
    a. Categorical features (menggunakan `catplot`)\
-      - Fitur sex memiliki pengaruh atau dampak yang kecil terhadap rata-rata biaya medis
-      - Fitur smoker, memiliki pengaruh atau dampak yang besar terhadap rata-rata biaya medis.
-      - Fitur region memiliki pengaruh atau dampak yang kecil terhadap rata-rata biaya medis.
+      - Fitur sex memiliki pengaruh atau dampak yang kecil terhadap rata-rata biaya medis\
+        Visualisasi:\
+        ![Screenshot 2025-04-23 203421](https://github.com/user-attachments/assets/c44fede7-4953-405f-975b-7c97351d4ab7)
+
+      - Fitur smoker, memiliki pengaruh atau dampak yang besar terhadap rata-rata biaya medis.\
+        Visualisasi:\
+        ![Screenshot 2025-04-23 203428](https://github.com/user-attachments/assets/ca5c9fd3-d0aa-4a73-9767-80ebc81f020c)
+
+      - Fitur region memiliki pengaruh atau dampak yang kecil terhadap rata-rata biaya medis.\
+        Visualisasi:\
+        ![Screenshot 2025-04-23 203441](https://github.com/user-attachments/assets/63bba737-1b9a-4277-be72-ac639b07b4fe)
+
           
    b. Numerical features (menggunakan `pairplot` dan `heatmap`)\
       - Fitur age (0.30) dan bmi (0.20) memiliki skor korelasi yang terindikasi positif dengan fitur target charges
-      - Fitur children memiliki korelasi yang sangat kecil (0.07). Sehingga, fitur tersebut dapat di-drop.
+      - Fitur children memiliki korelasi yang sangat kecil (0.07). Sehingga, fitur tersebut dapat di-drop.\
+        Visualisasi:\
+        ![Screenshot 2025-04-23 203502](https://github.com/user-attachments/assets/4e576345-d8be-4adb-9892-7b9ffa34aaf1)
+
 
 ## Data Preparation
 Melakukan lima tahap persiapan data, yaitu:
 1. Menangani Duplikasi Data
 2. Mengecek Missing Value
-3. Encoding fitur kategori
-4. Pembagian dataset dengan fungsi train_test_split dari library sklearn.
-5. Standarisasi.
+3. Seleksi Fitur
+4. Encoding fitur kategori
+5. Pembagian dataset dengan fungsi train_test_split dari library sklearn.
+6. Standarisasi.
 
 **Rubrik/Kriteria Tambahan**:
 1. Mengecek duplikasi data dengan fungsi `duplicated().sum()`\
    - Jumlah duplikasi data berjumlah 1 baris dan dilakukan penghapusan data pada baris tersebut menggunakan fungsi `drop()`. Sehingga baris berjumlah 1.337
 2. Mengecek missing value dengan fungsi `isna().sum()`\
    - Tidak terindikasinya nilai yang hilang di setiap fitur yang ada
-3. Encoding fitur kategori menggunakan `OneHotEncoding` dan `LabelEncoder`\
+3. Seleksi fitur dengan melakukan drop pada fitur children dengan fungsi `drop()`
+   - Fitur children memiliki korelasi rendah terhadap fitur biaya medis (charges), sehingga fitur ini dapat dihapus
+4. Encoding fitur kategori menggunakan `OneHotEncoding` dan `LabelEncoder`\
    - Hal ini dilakukan sebab model regresi membutuhkan input numerik, maka dari itu fitur kategori yang bertipe object di rubah menjadi numerik agar model mengenali data kategorikal
-4. Membagi dataset menjadi data train dan data test dengan perbandingan 80:20 menggunakan `train_test_split`\
+5. Membagi dataset menjadi data train dan data test dengan perbandingan 80:20 menggunakan `train_test_split`\
    - Data yang kita miliki berada di kisaran 1000an sampel sehingga ini menjadi ideal. Hal ini dilakukan guna melakukan tahap training pada model menggunakan data train, lalu melakukan tahap evaluasi menggunakan data test
-5. Standarisasi (scaling) menggunakan `StandardScaler` terhadap data yang telah displit sebelumnya\
+6. Standarisasi (scaling) menggunakan `StandardScaler` terhadap data yang telah displit sebelumnya\
    - `StandardScaler` menghasilkan distribusi angka rentang 1,0,-1. Hal ini dilakukan agar algoritma stidak terpengaruh oleh perbedaan skala antar fitur.
 
 ## Modeling
@@ -243,6 +277,7 @@ Perusahaan asuransi kesehatan harus mampu mencegah beberapa kerugian yang diangg
    - **Memilih model terbaik berdasarkan evaluasi metrik**\
      Model Gradient Boosting dipilih sebagai model final karena memiliki MAE dan MSE paling rendah serta R² tertinggi. Pemilihan model terbaik ini berdampak pada tingkat kemampuan prediksi machine learning yang akan digunakan perusahaan asuransi kesehatan
 
+**Kesimpulan Evaluasi:**\
 Dengan menggunakan model dan hasil yang telah dirancang terutama model **Gradient Boosting Regressor**, diharapkan perusahaan dapat mencegah resiko kerugian, seperti:
 - Prediksi biaya medis yang akurat dapat membantu merencanakan premi yang adil dan kompetitif
 - Kemampuan identifikasi risiko tinggi menjadi lebih baik untuk memungkinkan pemberian program kesehatan khusus pada individu tertentu
