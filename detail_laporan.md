@@ -15,12 +15,12 @@ Suatu perusahaan asuransi kesehatan memiliki tanggung jawab yang besar terhadap 
 Oleh karena itu, penting bagi perusahaan asuransi kesehatan untuk mengetahui dan dapat memprediksi kejadian di masa depan dengan menggunakan suatu sistem. Hal ini akan berdampak positif pada penyusunan anggaran, perencanaan risiko, dan penyesuaian strategi akan mengandalkan teknologi atau automation judgement, yang mana dapat membantu pengambilan keputusan dan prosesnya tidak memakan waktu lama.
 
 ### Problem Statements
-- Dari serangkaian atribut(fitur) yang ada, atribut(fitur) apa yang paling berpengaruh terhadap biaya medis (charge) asuransi?
-- Bagaimana cara memprediksi biaya medis (charges) yang akan dikeluarkan seseorang berdasarkan fitur yang ada?
+- Pernyataan Masalah 1: Dari serangkaian atribut(fitur) yang ada, atribut(fitur) apa yang paling berpengaruh terhadap biaya medis (charge) asuransi?
+- Pernyataan Masalah 2: Bagaimana cara memprediksi biaya medis (charges) yang akan dikeluarkan seseorang berdasarkan fitur yang ada?
 
 ### Goals
-- Mengetahui atribut(fitur) yang paling berkorelasi dengan biaya medis (charges)
-- Membuat machine learning yang dapat memprediksi biaya medis (charges) berdasarkan fitur yang ada
+- Tujuan 1: Mengetahui atribut(fitur) yang paling berkorelasi dengan biaya medis (charges)
+- Tujuan 2: Membuat machine learning yang dapat memprediksi biaya medis (charges) berdasarkan fitur yang ada
 
 **Rubrik/Kriteria Tambahan**:
 ### Solution statements
