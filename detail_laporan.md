@@ -243,7 +243,7 @@ Perusahaan asuransi kesehatan harus mampu mencegah beberapa kerugian yang diangg
    - **Memilih model terbaik berdasarkan evaluasi metrik**\
      Model Gradient Boosting dipilih sebagai model final karena memiliki MAE dan MSE paling rendah serta R² tertinggi. Pemilihan model terbaik ini berdampak pada tingkat kemampuan prediksi machine learning yang akan digunakan perusahaan asuransi kesehatan
 
-Dengan menggunakan model dan hasil yang telah dirancang terutama model **Gradient Boosting Regressor**, perusahaan dapat mencegah resiko kerugian, seperti:
+Dengan menggunakan model dan hasil yang telah dirancang terutama model **Gradient Boosting Regressor**, diharapkan perusahaan dapat mencegah resiko kerugian, seperti:
 - Prediksi biaya medis yang akurat dapat membantu merencanakan premi yang adil dan kompetitif
 - Kemampuan identifikasi risiko tinggi menjadi lebih baik untuk memungkinkan pemberian program kesehatan khusus pada individu tertentu
 - Optimalisasi perencanaan keuangan dan pengendalian klaim, berkontribusi pada efisiensi manajemen risiko perusahaan
